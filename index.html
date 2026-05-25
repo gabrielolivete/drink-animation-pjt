@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/move-icon.png">
     <title>Animation</title>
 </head>
+
 <body>
     <main>
-        <div class="item active" style="--background: #2D5643">
-            <div class="title">Avocado</div>
-            <img src="./img/avocado-soda-foregroundBlur.png" alt="avocado fruit" class="fruit">
-            <img src="./img/avocado-soda.png" alt="avocado soda" class="soda">
-        </div>
-        <div class="item" style="--background: #EA3D41">
-            <div class="title">Strawberry</div>
-            <img src="./img/strawberry-soda-foregroundBlur.png" alt="strawberry fruit" class="fruit">
-            <img src="./img/strawberry-soda.png" alt="strawberry soda" class="soda">
-        </div>
-        <div class="item" style="--background: #E7A043">
-            <div class="title">Orange</div>
-            <img src="./img/orange-soda-foregroundBlur.png" alt="orange fruit" class="fruit">
-            <img src="./img/orange-soda.png" alt="orange soda" class="soda">
-        </div>
-        <div class="arrow">
-            <button id="prev">&#10094;</button>
-            <button id="next">&#10095;</button>
+        <div class="slider">
+            <div class="item active" style="--background: #2D5643">
+                <div class="title">Avocado</div>
+                <img src="./img/avocado-soda-foregroundBlur.png" alt="avocado fruit" class="fruit">
+                <img src="./img/avocado-soda.png" alt="avocado soda" class="soda">
+            </div>
+            <div class="item" style="--background: #EA3D41">
+                <div class="title">Strawberry</div>
+                <img src="./img/strawberry-soda-foregroundBlur.png" alt="strawberry fruit" class="fruit">
+                <img src="./img/strawberry-soda.png" alt="strawberry soda" class="soda">
+            </div>
+            <div class="item" style="--background: #E7A043">
+                <div class="title">Orange</div>
+                <img src="./img/orange-soda-foregroundBlur.png" alt="orange fruit" class="fruit">
+                <img src="./img/orange-soda.png" alt="orange soda" class="soda">
+            </div>
+            <div class="arrow">
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
         </div>
     </main>
+    <footer>
+        <p>
+            Copyright 2026
+            <i class="fa-regular fa-copyright"></i>
+            Frontend study portfolio by Gabriel
+        </p>
+    </footer>
 </body>
 <script src="./scripts.js"></script>
+
 </html>
