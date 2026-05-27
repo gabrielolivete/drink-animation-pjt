@@ -21,64 +21,72 @@ prev.onclick = () => {
     list[active].classList.add('active')
 }
 
-const list = document.querySelectorAll('.item')
-const next = document.getElementById('next')
-const prev = document.getElementById('prev')
+/*TESTE SWIPE */
+
+const slides = document.querySelectorAll('.item')
+const buttonNext = document.getElementById('next')
+const buttonPrev = document.getElementById('prev')
 const slider = document.querySelector('.slider')
 
-let count = list.length
-let active = 0
+let totalSlides = slides.length
+let currentSlide = 0
+
+/* TROCA DE SLIDE */
 
 function changeSlide(direction) {
 
-    const activeOld = document.querySelector('.item.active')
+    const currentActive = document.querySelector('.item.active')
 
-    activeOld.classList.remove('active')
+    currentActive.classList.remove('active')
 
     if (direction === 'next') {
-        active = active >= count - 1 ? 0 : active + 1
+        currentSlide = currentSlide >= totalSlides - 1 ? 0 : currentSlide + 1
     } else {
-        active = active <= 0 ? count - 1 : active - 1
+        currentSlide = currentSlide <= 0 ? totalSlides - 1 : currentSlide - 1
     }
 
-    list[active].classList.add('active')
+    slides[currentSlide].classList.add('active')
 }
 
 /* BOTÕES */
 
-next.addEventListener('click', () => {
+buttonNext.addEventListener('click', () => {
     changeSlide('next')
 })
 
-prev.addEventListener('click', () => {
+buttonPrev.addEventListener('click', () => {
     changeSlide('prev')
 })
 
-/* SWIPE MOBILE */
+/* SWIPE */
 
-let touchStartX = 0
-let touchEndX = 0
+let startX = 0
+let isDragging = false
 
-slider.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX
+slider.addEventListener('pointerdown', (e) => {
+    startX = e.clientX
+    isDragging = true
 })
 
-slider.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].clientX
+slider.addEventListener('pointermove', (e) => {
 
-    handleSwipe()
-})
+    if (!isDragging) return
 
-function handleSwipe() {
+    const currentX = e.clientX
+    const distance = startX - currentX
 
-    const distance = touchStartX - touchEndX
+    if (Math.abs(distance) > 70) {
 
-    /* evita swipe acidental */
-    if (Math.abs(distance) < 50) return
+        if (distance > 0) {
+            changeSlide('next')
+        } else {
+            changeSlide('prev')
+        }
 
-    if (distance > 0) {
-        changeSlide('next')
-    } else {
-        changeSlide('prev')
+        isDragging = false
     }
-}
+})
+
+slider.addEventListener('pointerup', () => {
+    isDragging = false
+})

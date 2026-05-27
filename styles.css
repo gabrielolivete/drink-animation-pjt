@@ -57,8 +57,10 @@ body {
     color: var(--white);
     font-weight: bold;
 
+    /* RESPONSIVO */
     font-size: clamp(3rem, 12vw, 12rem);
 
+    /* impede quebra estranha */
     white-space: nowrap;
 }
 
@@ -109,6 +111,8 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+
+    touch-action: pan-y;
 }
 
 footer {
@@ -162,11 +166,22 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .item .title {
-        font-size: 5rem;
+    .item .title.strawberry {
+        font-size: clamp(4rem, 14vw, 5rem);
         text-align: center;
         width: 100%;
         padding: 0 20px;
+        bottom: 60%;
+    }
+
+    .item .title.avocado {
+        font-size: 5rem;
+        bottom: 60%;
+    }
+
+    .item .title.orange {
+        font-size: 6rem;
+        bottom: 60%;
     }
 
     .item .soda {
@@ -175,7 +190,7 @@ footer {
 
     .item .fruit {
         width: 140%;
-        top: 10%;
+        top: 20%;
         left: -20%;
     }
 
